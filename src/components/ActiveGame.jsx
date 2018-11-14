@@ -1,9 +1,10 @@
 import React from 'react';
 import StatusBar from './StatusBar';
 import Avatar from './Avatar';
+import { Redirect, Route } from 'react-router-dom';
 
 const status = {
-  food: 10,
+  food: 3,
   sleep: 10,
   play: 10
 }
@@ -29,6 +30,7 @@ class ActiveGame extends React.Component{
 
   componentWillUnmount(){
     clearInterval(this.foodTimer);
+
   }
 
   decreaseFood() {
@@ -40,7 +42,12 @@ class ActiveGame extends React.Component{
     // console.log(newStatus.food);
   }
 
+
+
   render () {
+    if (this.state.status.food <= 0) {
+      return <Redirect to='/gameover' />
+    }
     return (
       <div>
         <StatusBar
