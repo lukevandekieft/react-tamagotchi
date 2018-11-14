@@ -2,14 +2,56 @@ import React from 'react';
 import StatusBar from './StatusBar';
 import Avatar from './Avatar';
 
-function ActiveGame(){
-  return (
-    <div>
-      <StatusBar/>
-      <Avatar/>
-    </div>
+const status = {
+  food: 10,
+  sleep: 10,
+  play: 10
+}
 
-  );
+class ActiveGame extends React.Component{
+
+  constructor() {
+    super();
+    this.state = {
+      status
+    };
+  }
+
+  componentDidMount() {
+
+    this.foodTimer = setInterval(() => {
+      // console.log(this.state.status.food);
+      this.decreaseFood();
+    },
+      1000
+    );
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.foodTimer);
+  }
+
+  decreaseFood() {
+    let newStatus =  JSON.parse(JSON.stringify(this.state.status));
+    newStatus.food --;
+    this.setState({
+      status: newStatus
+    })
+    // console.log(newStatus.food);
+  }
+
+  render () {
+    return (
+      <div>
+        <StatusBar
+          food={this.state.status.food}
+          sleep={this.state.status.sleep}
+          play={this.state.status.play}
+        />
+        <Avatar/>
+      </div>
+    );
+  }
 }
 
 export default ActiveGame;

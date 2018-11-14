@@ -8,9 +8,6 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-
-    };
   }
 
   render() {
@@ -22,7 +19,6 @@ class App extends React.Component {
           <Route path='/gameover' component={GameOverScreen}/>
         </Switch>
       </div>
-
     );
   }
 }
