@@ -9,13 +9,12 @@ import lilaDefault from '../assets/images/lilaDefault.png';
 import rohonDefault from '../assets/images/rohonDefault.png';
 
 
-
 class App extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      activeCharacter: 'bearsum',
+      activeCharacter: 'fail',
       characterList: {
         'bearsum' : {
           food: 1000,
@@ -45,6 +44,7 @@ class App extends React.Component {
     this.handleClearTimer = this.handleClearTimer.bind(this);
     this.handleDecreaseStat = this.handleDecreaseStat.bind(this);
     this.handleSetCharacter = this.handleSetCharacter.bind(this);
+
   }
 
 
@@ -110,29 +110,56 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+    <div className='mainContainer'>
+      <style jsx>{`
+          .mainContainer {
+            background-image: url('https://images-na.ssl-images-amazon.com/images/I/61htZVHNomL._SL1200_.jpg');
+            max-width: 916px;
+            width: 100vw;
+            height: 98vh;
+            max-height: 1200px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+          }
+          .screenContainer {
+            width: 50vw;
+            height: 50vh;
+            max-width: 480px;
+            max-height: 440px;
+            top: 25%;
+          }
+          .placeholder {
+            height: 25vh;
+          }
+
+          `}</style>
+        <div className="placeholder">
+        </div>
+      <div className='screenContainer'>
         <Switch>
           <Route exact path='/' component={StartScreen}/>
-          <Route path='/choosecharacter' render={(props)=>(<ChooseCharacter
-            onSetCharacter={this.handleSetCharacter}
-            lilaPicture={this.state.characterList['lila'].picture}
-            bearsumPicture={this.state.characterList['bearsum'].picture}
-            rohonPicture={this.state.characterList['rohon'].picture}
-            />)}/>
-          <Route path='/activegame' render={(props)=> (<ActiveGame
-            food={this.state.characterList[this.state.activeCharacter].food}
-            sleep={this.state.characterList[this.state.activeCharacter].sleep}
-            play={this.state.characterList[this.state.activeCharacter].play}
-            picture={this.state.characterList[this.state.activeCharacter].picture}
-            onAddFood={this.handleAddFood}
-            onAddSleep={this.handleAddSleep}
-            onAddPlay={this.handleAddPlay}
-            onTimer={this.handleTimer}
-            onClearTimer={this.handleClearTimer}
-            onDecreaseStat={this.handleDecreaseStat}
-          />)} />
-          <Route path='/gameover' component={GameOverScreen}/>
-        </Switch>
+          <Route path='/choosecharacter' render={()=>(<ChooseCharacter
+              onSetCharacter={this.handleSetCharacter}
+              lilaPicture={this.state.characterList['lila'].picture}
+              bearsumPicture={this.state.characterList['bearsum'].picture}
+              rohonPicture={this.state.characterList['rohon'].picture}
+              />)}/>
+            <Route path='/activegame' render={()=> (<ActiveGame
+                food={this.state.characterList[this.state.activeCharacter].food}
+                sleep={this.state.characterList[this.state.activeCharacter].sleep}
+                play={this.state.characterList[this.state.activeCharacter].play}
+                picture={this.state.characterList[this.state.activeCharacter].picture}
+                onAddFood={this.handleAddFood}
+                onAddSleep={this.handleAddSleep}
+                onAddPlay={this.handleAddPlay}
+                onTimer={this.handleTimer}
+                onClearTimer={this.handleClearTimer}
+                onDecreaseStat={this.handleDecreaseStat}
+                />)} />
+              <Route path='/gameover' component={GameOverScreen}/>
+            </Switch>
+          </div>
       </div>
     );
   }

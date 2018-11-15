@@ -6,11 +6,12 @@ import ControlPanel from './ControlPanel';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
+
+
 class ActiveGame extends React.Component{
 
   constructor(props) {
     super(props);
-
   }
 
   componentDidMount() {
@@ -20,7 +21,6 @@ class ActiveGame extends React.Component{
   componentWillUnmount(){
     this.props.onClearTimer();
   }
-
 
   render () {
     if (this.props.food <= 0 || this.props.play <= 0 || this.props.sleep <= 0) {
@@ -35,13 +35,13 @@ class ActiveGame extends React.Component{
         />
         <Avatar
           picture={this.props.picture}
-          />
+        />
         <ControlPanel
           onAddFood={this.props.onAddFood}
           onAddSleep={this.props.onAddSleep}
           onAddPlay={this.props.onAddPlay}
         />
-      <Link to='/choosecharacter'><button>Back to Character Select</button></Link>
+        <Link to='/choosecharacter'><button>Back to Character Select</button></Link>
       </div>
     );
   }

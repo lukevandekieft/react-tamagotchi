@@ -4,21 +4,65 @@ import PropTypes from 'prop-types';
 
 function ChooseCharacter(props){
   return (
-    <div>
+    <div className="container">
+      <style jsx>{`
+          * {
+            margin: 0 auto;
+            position: relative;
+          }
+          .playButton {
+            position: absolute;
+            right: auto;
+            bottom: auto;
+            left: 50%;
+            transform: translate(-50%);
+            display: block;
+            margin-top: 30px;
+          }
+          h1 {
+            text-align: center;
+            font-family: fantasy;
+          }
+          .characterBox {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+          }
+          .characterButton:focus {
+            border: black solid 10px;
+            background-color: red;
+            outline: none;
+          }
+          .characterButton {
+            width: 100px;
+            height: 100px;
+            box-sizing: border-box;
+          }
+      `}</style>
       <h1>Choose a Character</h1>
-      <div onClick={()=>{props.onSetCharacter('lila')}}>
+      <div className='characterBox'>
+      <button className='characterButton' onClick={()=>{props.onSetCharacter('lila');}}>
         <img src={props.lilaPicture} />
-      </div>
-      <div onClick={()=>{props.onSetCharacter('bearsum')}}>
+      </button>
+      <button className='characterButton' onClick={()=>{props.onSetCharacter('bearsum');}}>
         <img src={props.bearsumPicture}/>
-      </div>
-      <div onClick={()=>{props.onSetCharacter('rohon')}}>
+      </button>
+      <button className='characterButton' onClick={()=>{props.onSetCharacter('rohon');}}>
         <img src={props.rohonPicture}/>
-      </div>
-      <Link to='/activegame'><button>Play!</button></Link>
+      </button>
+    </div>
+      <Link to='/activegame'><button className='playButton'>Play!</button></Link>
     </div>
 
   );
 }
+
+
+ChooseCharacter.propTypes = {
+  onSetCharacter: PropTypes.func.isRequired,
+  lilaPicture: PropTypes.string.isRequired,
+  bearsumPicture: PropTypes.string.isRequired,
+  rohonPicture: PropTypes.string.isRequired,
+};
 
 export default ChooseCharacter;
