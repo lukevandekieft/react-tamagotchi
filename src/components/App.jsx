@@ -4,38 +4,46 @@ import StartScreen from './StartScreen';
 import ActiveGame from './ActiveGame';
 import GameOverScreen from './GameOverScreen';
 import ChooseCharacter from './ChooseCharacter';
-import defaultStance from '../assets/images/jump1.png';
+import bearsumDefault from '../assets/images/bearsumDefault.png';
 import lilaDefault from '../assets/images/lilaDefault.png';
 import rohonDefault from '../assets/images/rohonDefault.png';
+import bearsumDead from '../assets/images/bearsumDead.png';
+import lilaDead from '../assets/images/lilaDead.png';
+import rohonDead from '../assets/images/rohonDead.png';
 
+const characterList = {
+  'bearsum' : {
+    food: 10,
+    sleep: 20,
+    play: 25,
+    picture: bearsumDefault,
+    deadPicture: bearsumDead
+  },
+  'lila' : {
+    food: 5,
+    sleep: 100,
+    play: 100,
+    picture: lilaDefault,
+    deadPicture: lilaDead
+  },
+  'rohon' : {
+    food: 1000,
+    sleep: 1000,
+    play: 1000,
+    picture: rohonDefault,
+    deadPicture: rohonDead
+  }
+}
+const startStats = characterList
 
 class App extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      activeCharacter: 'fail',
-      characterList: {
-        'bearsum' : {
-          food: 1000,
-          sleep: 1000,
-          play: 1000,
-          picture: defaultStance
-        },
-        'lila' : {
-          food: 1000,
-          sleep: 1000,
-          play: 1000,
-          picture: lilaDefault
-        },
-        'rohon' : {
-          food: 1000,
-          sleep: 1000,
-          play: 1000,
-          picture: rohonDefault
-        }
-      }
-
+      activeCharacter: 'bearsum',
+      characterList,
+      startStats
     };
     this.handleAddFood = this.handleAddFood.bind(this);
     this.handleAddSleep = this.handleAddSleep.bind(this);
@@ -44,7 +52,7 @@ class App extends React.Component {
     this.handleClearTimer = this.handleClearTimer.bind(this);
     this.handleDecreaseStat = this.handleDecreaseStat.bind(this);
     this.handleSetCharacter = this.handleSetCharacter.bind(this);
-
+    this.handleResetGame = this.handleResetGame.bind(this);
   }
 
 
@@ -99,6 +107,13 @@ class App extends React.Component {
     });
   }
 
+  handleResetGame() {
+    let starterCharacterList =  JSON.parse(JSON.stringify(this.state.startStats));
+    this.setState({
+      characterList: starterCharacterList
+    });
+  }
+
   handleSetCharacter(name) {
     console.log(this.state.activeCharacter);
     let newActiveCharacter = name;
@@ -111,6 +126,18 @@ class App extends React.Component {
   render() {
     return (
     <div className='mainContainer'>
+      <style jsx global>{`
+        .generalButton {
+          padding: 5px;
+          border-radius: 5px;
+          box-sizing: border-box;
+          font-size: 1em;
+          font-family: sans-serif;
+          font-weight: 900;
+          color: lightcoral;
+          border: 2px solid lightcoral;
+        }
+      `}</style>
       <style jsx>{`
           .mainContainer {
             background-image: url('https://images-na.ssl-images-amazon.com/images/I/61htZVHNomL._SL1200_.jpg');
@@ -157,7 +184,10 @@ class App extends React.Component {
                 onClearTimer={this.handleClearTimer}
                 onDecreaseStat={this.handleDecreaseStat}
                 />)} />
-              <Route path='/gameover' component={GameOverScreen}/>
+              <Route path='/gameover' render={()=>(<GameOverScreen
+                  deadPicture={this.state.characterList[this.state.activeCharacter].deadPicture}
+                  onResetGame={this.handleResetGame}
+                  />)}/>
             </Switch>
           </div>
       </div>

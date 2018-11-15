@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 function ChooseCharacter(props){
   return (
-    <div className="container">
+    <div>
       <style jsx>{`
           * {
             margin: 0 auto;
@@ -12,8 +12,6 @@ function ChooseCharacter(props){
           }
           .playButton {
             position: absolute;
-            right: auto;
-            bottom: auto;
             left: 50%;
             transform: translate(-50%);
             display: block;
@@ -29,8 +27,8 @@ function ChooseCharacter(props){
             margin-top: 10px;
           }
           .characterButton:focus {
-            border: black solid 10px;
-            background-color: red;
+            border: lightcoral solid 10px;
+            background-color: pink;
             outline: none;
           }
           .characterButton {
@@ -51,7 +49,7 @@ function ChooseCharacter(props){
         <img src={props.rohonPicture}/>
       </button>
     </div>
-      <Link to='/activegame'><button className='playButton'>Play!</button></Link>
+      <Link to='/activegame'><button className='playButton generalButton'>Play!</button></Link>
     </div>
 
   );

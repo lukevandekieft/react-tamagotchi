@@ -28,6 +28,21 @@ class ActiveGame extends React.Component{
     }
     return (
       <div>
+        <style jsx>{`
+            * {
+              margin: 0 auto;
+              position: relative;
+            }
+            h1 {
+              text-align: center;
+              font-family: fantasy;
+            }
+            .playButton {
+              position: relative;
+              display: block;
+              margin-top: 30px;
+            }
+        `}</style>
         <StatusBar
           food={this.props.food}
           sleep={this.props.sleep}
@@ -41,7 +56,7 @@ class ActiveGame extends React.Component{
           onAddSleep={this.props.onAddSleep}
           onAddPlay={this.props.onAddPlay}
         />
-        <Link to='/choosecharacter'><button>Back to Character Select</button></Link>
+      <Link to='/choosecharacter'><button className='playButton generalButton'>Back to Character Select</button></Link>
       </div>
     );
   }
