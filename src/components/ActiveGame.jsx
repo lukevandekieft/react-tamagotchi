@@ -4,6 +4,7 @@ import Avatar from './Avatar';
 import { Redirect } from 'react-router-dom';
 import ControlPanel from './ControlPanel';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class ActiveGame extends React.Component{
 
@@ -40,6 +41,7 @@ class ActiveGame extends React.Component{
           onAddSleep={this.props.onAddSleep}
           onAddPlay={this.props.onAddPlay}
         />
+      <Link to='/choosecharacter'><button>Back to Character Select</button></Link>
       </div>
     );
   }

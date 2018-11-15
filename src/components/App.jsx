@@ -8,11 +8,7 @@ import defaultStance from '../assets/images/jump1.png';
 import lilaDefault from '../assets/images/lilaDefault.png';
 import rohonDefault from '../assets/images/rohonDefault.png';
 
-const status = {
-  food: 1000,
-  play: 1000,
-  sleep: 1000
-};
+
 
 class App extends React.Component {
 
@@ -20,7 +16,6 @@ class App extends React.Component {
     super(props);
     this.state = {
       activeCharacter: 'bearsum',
-      status,
       characterList: {
         'bearsum' : {
           food: 1000,
@@ -49,6 +44,7 @@ class App extends React.Component {
     this.handleTimer = this.handleTimer.bind(this);
     this.handleClearTimer = this.handleClearTimer.bind(this);
     this.handleDecreaseStat = this.handleDecreaseStat.bind(this);
+    this.handleSetCharacter = this.handleSetCharacter.bind(this);
   }
 
 
@@ -103,6 +99,14 @@ class App extends React.Component {
     });
   }
 
+  handleSetCharacter(name) {
+    console.log(this.state.activeCharacter);
+    let newActiveCharacter = name;
+    this.setState({
+      activeCharacter: newActiveCharacter
+    });
+  }
+
 
   render() {
     return (
@@ -110,6 +114,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={StartScreen}/>
           <Route path='/choosecharacter' render={(props)=>(<ChooseCharacter
+            onSetCharacter={this.handleSetCharacter}
             lilaPicture={this.state.characterList['lila'].picture}
             bearsumPicture={this.state.characterList['bearsum'].picture}
             rohonPicture={this.state.characterList['rohon'].picture}
