@@ -1,13 +1,17 @@
 import React from 'react';
-import defaultStance from '../assets/images/jump1.png';
+import PropTypes from 'prop-types';
 
-function Avatar(){
+function Avatar(props){
   return (
     <div>
-      <img src={defaultStance}/>
+      <img src={props.picture}/>
     </div>
 
   );
 }
+
+Avatar.propTypes = {
+  picture: PropTypes.string.isRequired
+};
 
 export default Avatar;

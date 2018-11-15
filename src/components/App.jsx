@@ -4,11 +4,14 @@ import StartScreen from './StartScreen';
 import ActiveGame from './ActiveGame';
 import GameOverScreen from './GameOverScreen';
 import ChooseCharacter from './ChooseCharacter';
+import defaultStance from '../assets/images/jump1.png';
+import lilaDefault from '../assets/images/lilaDefault.png';
+import rohonDefault from '../assets/images/rohonDefault.png';
 
 const status = {
-  food: 10,
-  play: 10,
-  sleep: 10
+  food: 1000,
+  play: 1000,
+  sleep: 1000
 };
 
 class App extends React.Component {
@@ -17,7 +20,28 @@ class App extends React.Component {
     super(props);
     this.state = {
       activeCharacter: 'bearsum',
-      status
+      status,
+      characterList: {
+        'bearsum' : {
+          food: 1000,
+          sleep: 1000,
+          play: 1000,
+          picture: defaultStance
+        },
+        'lila' : {
+          food: 1000,
+          sleep: 1000,
+          play: 1000,
+          picture: lilaDefault
+        },
+        'rohon' : {
+          food: 1000,
+          sleep: 1000,
+          play: 1000,
+          picture: rohonDefault
+        }
+      }
+
     };
     this.handleAddFood = this.handleAddFood.bind(this);
     this.handleAddSleep = this.handleAddSleep.bind(this);
@@ -30,9 +54,9 @@ class App extends React.Component {
 
   handleTimer() {
     this.timer = setInterval(() => {
-      this.decreaseStat();
+      this.handleDecreaseStat();
     },
-    3000
+    1000
     );
   }
 
@@ -45,40 +69,37 @@ class App extends React.Component {
   // }
 
   handleDecreaseStat() {
-    let newStatus =  JSON.parse(JSON.stringify(this.state.status));
-    newStatus.food --;
-    newStatus.sleep --;
-    newStatus.play --;
+    let newCharacterList =  JSON.parse(JSON.stringify(this.state.characterList));
+    newCharacterList[this.state.activeCharacter].food --;
+    newCharacterList[this.state.activeCharacter].sleep --;
+    newCharacterList[this.state.activeCharacter].play --;
     this.setState({
-      status: newStatus
+      characterList: newCharacterList
     });
   }
 
 
   handleAddFood() {
-    let newStatus =  JSON.parse(JSON.stringify(this.state.status));
-    console.log(this.state.status);
-    newStatus.food = newStatus.food +5;
+    let newCharacterList =  JSON.parse(JSON.stringify(this.state.characterList));
+    newCharacterList[this.state.activeCharacter].food = newCharacterList[this.state.activeCharacter].food +5;
     this.setState({
-      status: newStatus
+      characterList: newCharacterList
     });
   }
 
   handleAddSleep() {
-    let newStatus =  JSON.parse(JSON.stringify(this.state.status));
-    console.log(this.state.status);
-    newStatus.sleep = newStatus.sleep +5;
+    let newCharacterList =  JSON.parse(JSON.stringify(this.state.characterList));
+    newCharacterList[this.state.activeCharacter].sleep = newCharacterList[this.state.activeCharacter].sleep +5;
     this.setState({
-      status: newStatus
+      characterList: newCharacterList
     });
   }
 
   handleAddPlay() {
-    let newStatus =  JSON.parse(JSON.stringify(this.state.status));
-    console.log(this.state.status);
-    newStatus.play = newStatus.play +5;
+    let newCharacterList =  JSON.parse(JSON.stringify(this.state.characterList));
+    newCharacterList[this.state.activeCharacter].play = newCharacterList[this.state.activeCharacter].play +5;
     this.setState({
-      status: newStatus
+      characterList: newCharacterList
     });
   }
 
@@ -90,9 +111,10 @@ class App extends React.Component {
           <Route exact path='/' component={StartScreen}/>
           <Route path='/choosecharacter' component={ChooseCharacter}/>
           <Route path='/activegame' render={(props)=> (<ActiveGame
-            food={this.state.status.food}
-            sleep={this.state.status.sleep}
-            play={this.state.status.play}
+            food={this.state.characterList[this.state.activeCharacter].food}
+            sleep={this.state.characterList[this.state.activeCharacter].sleep}
+            play={this.state.characterList[this.state.activeCharacter].play}
+            picture={this.state.characterList[this.state.activeCharacter].picture}
             onAddFood={this.handleAddFood}
             onAddSleep={this.handleAddSleep}
             onAddPlay={this.handleAddPlay}

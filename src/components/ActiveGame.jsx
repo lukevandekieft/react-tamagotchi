@@ -13,11 +13,11 @@ class ActiveGame extends React.Component{
   }
 
   componentDidMount() {
-    {this.props.onTimer;}
+    this.props.onTimer();
   }
 
   componentWillUnmount(){
-    {this.props.onClearTimer;}
+    this.props.onClearTimer();
   }
 
 
@@ -32,7 +32,9 @@ class ActiveGame extends React.Component{
           sleep={this.props.sleep}
           play={this.props.play}
         />
-        <Avatar/>
+        <Avatar
+          picture={this.props.picture}
+          />
         <ControlPanel
           onAddFood={this.props.onAddFood}
           onAddSleep={this.props.onAddSleep}
@@ -47,6 +49,7 @@ ActiveGame.propTypes = {
   food: PropTypes.number.isRequired,
   sleep: PropTypes.number.isRequired,
   play: PropTypes.number.isRequired,
+  picture: PropTypes.string.isRequired,
   onAddFood: PropTypes.func.isRequired,
   onAddSleep: PropTypes.func.isRequired,
   onAddPlay: PropTypes.func.isRequired,
