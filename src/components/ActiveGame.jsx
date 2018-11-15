@@ -1,99 +1,57 @@
 import React from 'react';
 import StatusBar from './StatusBar';
 import Avatar from './Avatar';
-import { Redirect, Route } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import ControlPanel from './ControlPanel';
-
-const status = {
-  food: 10,
-  sleep: 10,
-  play: 10
-}
+import PropTypes from 'prop-types';
 
 class ActiveGame extends React.Component{
 
-  constructor() {
-    super();
-    this.state = {
-      status
-    };
-    this.handleAddFood = this.handleAddFood.bind(this)
-    this.handleAddSleep = this.handleAddSleep.bind(this)
-    this.handleAddPlay = this.handleAddPlay.bind(this)
+  constructor(props) {
+    super(props);
 
   }
 
   componentDidMount() {
-
-    this.Timer = setInterval(() => {
-      this.decreaseStat();
-    },
-      3000
-    );
+    {this.props.onTimer;}
   }
 
   componentWillUnmount(){
-    clearInterval(this.Timer);
-
-  }
-
-  decreaseStat() {
-    let newStatus =  JSON.parse(JSON.stringify(this.state.status));
-    newStatus.food --;
-    newStatus.sleep --;
-    newStatus.play --;
-    this.setState({
-      status: newStatus
-    })
-  }
-
-
-  handleAddFood() {
-    let newStatus =  JSON.parse(JSON.stringify(this.state.status));
-    console.log(this.state.status)
-    newStatus.food = newStatus.food +5;
-    this.setState({
-      status: newStatus
-    })
-  }
-  handleAddSleep() {
-    let newStatus =  JSON.parse(JSON.stringify(this.state.status));
-    console.log(this.state.status)
-    newStatus.sleep = newStatus.sleep +5;
-    this.setState({
-      status: newStatus
-    })
-  }
-  handleAddPlay() {
-    let newStatus =  JSON.parse(JSON.stringify(this.state.status));
-    console.log(this.state.status)
-    newStatus.play = newStatus.play +5;
-    this.setState({
-      status: newStatus
-    })
+    {this.props.onClearTimer;}
   }
 
 
   render () {
-    if (this.state.status.food <= 0 || this.state.status.play <= 0 || this.state.status.sleep <= 0) {
-      return <Redirect to='/gameover' />
+    if (this.props.food <= 0 || this.props.play <= 0 || this.props.sleep <= 0) {
+      return <Redirect to='/gameover' />;
     }
     return (
       <div>
         <StatusBar
-          food={this.state.status.food}
-          sleep={this.state.status.sleep}
-          play={this.state.status.play}
+          food={this.props.food}
+          sleep={this.props.sleep}
+          play={this.props.play}
         />
         <Avatar/>
         <ControlPanel
-          onAddFood={this.handleAddFood}
-          onAddSleep={this.handleAddSleep}
-          onAddPlay={this.handleAddPlay}
-          />
+          onAddFood={this.props.onAddFood}
+          onAddSleep={this.props.onAddSleep}
+          onAddPlay={this.props.onAddPlay}
+        />
       </div>
     );
   }
 }
+
+ActiveGame.propTypes = {
+  food: PropTypes.number.isRequired,
+  sleep: PropTypes.number.isRequired,
+  play: PropTypes.number.isRequired,
+  onAddFood: PropTypes.func.isRequired,
+  onAddSleep: PropTypes.func.isRequired,
+  onAddPlay: PropTypes.func.isRequired,
+  onTimer: PropTypes.func.isRequired,
+  onClearTimer: PropTypes.func.isRequired
+};
 
 export default ActiveGame;

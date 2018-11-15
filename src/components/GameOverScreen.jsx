@@ -7,7 +7,7 @@ function GameOverScreen(){
   return (
     <div>
       <h1>Game Over!</h1>
-        <img src={deadStance}/>
+      <img src={deadStance}/>
       <Link to='/'><button>Play Again?</button></Link>
 
     </div>

@@ -6,7 +6,7 @@ function StartScreen(){
   return (
     <div>
       <h1>Welcome to Tamagotchi!</h1>
-      <Link to='/activegame'><button>Play!</button></Link>
+      <Link to='/choosecharacter'><button>Play!</button></Link>
     </div>
 
   );

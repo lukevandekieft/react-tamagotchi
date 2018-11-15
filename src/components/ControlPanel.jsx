@@ -12,11 +12,10 @@ function ControlPanel({onAddFood, onAddSleep, onAddPlay}){
   );
 }
 
-
-// ControlPanel.propTypes = {
-//   food: PropTypes.number.isRequired,
-//   sleep: PropTypes.number.isRequired,
-//   play: PropTypes.number.isRequired,
-// };
+ControlPanel.propTypes = {
+  onAddFood: PropTypes.func.isRequired,
+  onAddSleep: PropTypes.func.isRequired,
+  onAddPlay: PropTypes.func.isRequired,
+};
 
 export default ControlPanel;
