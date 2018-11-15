@@ -109,7 +109,11 @@ class App extends React.Component {
       <div>
         <Switch>
           <Route exact path='/' component={StartScreen}/>
-          <Route path='/choosecharacter' component={ChooseCharacter}/>
+          <Route path='/choosecharacter' render={(props)=>(<ChooseCharacter
+            lilaPicture={this.state.characterList['lila'].picture}
+            bearsumPicture={this.state.characterList['bearsum'].picture}
+            rohonPicture={this.state.characterList['rohon'].picture}
+            />)}/>
           <Route path='/activegame' render={(props)=> (<ActiveGame
             food={this.state.characterList[this.state.activeCharacter].food}
             sleep={this.state.characterList[this.state.activeCharacter].sleep}
