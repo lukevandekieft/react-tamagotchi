@@ -7,9 +7,6 @@ function RouteButton(props){
     <div>
       <style jsx>{`
         .routeButton {
-          position: absolute;
-          left: 50%;
-          transform: translate(-50%);
           display: block;
           margin-top: 30px;
           padding: 5px;

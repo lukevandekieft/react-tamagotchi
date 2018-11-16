@@ -18,13 +18,18 @@ function ChooseCharacter(props){
         buttonName='Play!'
         buttonLink='/activegame'
       />
+      
+      <RouteButton 
+        buttonName='Add Character'
+        buttonLink='/charactercreation'
+      />
     </div>
   );
 }
 
 ChooseCharacter.propTypes = {
   onSetCharacter: PropTypes.func.isRequired,
-  characterList: PropTypes.object.isRequired
+  characterList: PropTypes.object.isRequired,
 };
 
 export default ChooseCharacter;

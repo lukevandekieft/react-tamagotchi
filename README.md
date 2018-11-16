@@ -37,12 +37,13 @@ _To download & edit do the following:_
 
 ## Development Notes
 
-* _I'd like to use a React-equivalent of Angular's ngIf to display Character Select icons rather than the hard-coded set I have. Can I use an object .map equivalent? Character buttons would then need to become a component._
 * _How can I implement CRUD into this project? I'd like to set up a character create section with a handful of pre-selected images. How hard is that to do? Now to find out!_
 * _Sass in React would be awesome. Is that attainable today?_
 
 _DONE:_
 * _Removed redundant CSS, consolidated redundant functions, and created components for reused assets._
+* _Switched character list from hardcoded items to an object mapping function._
+* _Cleaned up improper CSS stylings._
 
 ## Bugs and Issues
 

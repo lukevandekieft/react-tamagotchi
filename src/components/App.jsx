@@ -4,13 +4,16 @@ import StartScreen from './StartScreen';
 import ActiveGame from './ActiveGame';
 import GameOverScreen from './GameOverScreen';
 import ChooseCharacter from './ChooseCharacter';
+import CharacterCreation from './CharacterCreation';
 import backgroundImage from '../assets/images/tamagotchi-cover.png';
-import bearsumDefault from '../assets/images/bearsumDefault.png';
 import lilaDefault from '../assets/images/lilaDefault.png';
-import rohonDefault from '../assets/images/rohonDefault.png';
-import bearsumDead from '../assets/images/bearsumDead.png';
 import lilaDead from '../assets/images/lilaDead.png';
+import bearsumDefault from '../assets/images/bearsumDefault.png';
+import bearsumDead from '../assets/images/bearsumDead.png';
+import rohonDefault from '../assets/images/rohonDefault.png';
 import rohonDead from '../assets/images/rohonDead.png';
+import pixieDefault from '../assets/images/pixieDefault.png';
+import pixieDead from '../assets/images/pixieDead.png';
 
 const characterList = {
   'lila' : {
@@ -36,6 +39,15 @@ const characterList = {
   }
 };
 const startStats = characterList;
+const templateCharacters = {
+  'pixie' : {
+    food: 20,
+    sleep: 20,
+    play: 20,
+    picture: pixieDefault,
+    deadPicture: pixieDead
+  }
+};
 
 class App extends React.Component {
   constructor(props) {
@@ -44,6 +56,7 @@ class App extends React.Component {
       activeCharacter: 'bearsum',
       characterList,
       startStats,
+      templateCharacters,
       history: []
     };
     this.handleAddStat = this.handleAddStat.bind(this);
@@ -125,7 +138,7 @@ class App extends React.Component {
             top: 25%;
           }
           .placeholder {
-            height: 25vh;
+            height: 28vh;
           }
         `}</style>
         <div className="placeholder">
@@ -136,6 +149,10 @@ class App extends React.Component {
             <Route path='/choosecharacter' render={()=>(<ChooseCharacter
               onSetCharacter={this.handleSetCharacter}
               characterList={this.state.characterList}
+            />)}/>
+            <Route path='/charactercreation' render={()=>(<CharacterCreation
+              characterList={this.state.characterList}
+              templateCharacters={this.state.templateCharacters}
             />)}/>
             <Route path='/activegame' render={()=> (<ActiveGame
               food={this.state.characterList[this.state.activeCharacter].food}
