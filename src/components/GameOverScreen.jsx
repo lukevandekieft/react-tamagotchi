@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import RouteButton from './RouteButton';
 import Avatar from './Avatar';
@@ -7,24 +6,14 @@ import Avatar from './Avatar';
 function GameOverScreen(props){
   return (
     <div>
-      <style jsx>{`
-          * {
-            margin: 0 auto;
-            position: relative;
-          }
-          h1 {
-            text-align: center;
-            font-family: fantasy;
-          }
-      `}</style>
-      <h1>Game Over!</h1>
+      <h1 className='headerStyles'>Game Over!</h1>
       <Avatar 
-      picture={props.deadPicture}
+        picture={props.deadPicture}
       />
       <RouteButton 
-      buttonName='Play Again?'
-      buttonLink='/'
-      onResetGame={props.onResetGame}
+        buttonName='Play Again?'
+        buttonLink='/'
+        onResetGame={props.onResetGame}
       />
 
     </div>

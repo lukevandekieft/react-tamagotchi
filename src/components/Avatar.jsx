@@ -5,10 +5,6 @@ function Avatar(props){
   return (
     <div>
       <style jsx>{`
-          * {
-            margin: 0 auto;
-            position: relative;
-          }
           img {
             position: relative;
             display: block;

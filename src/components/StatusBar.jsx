@@ -5,10 +5,6 @@ function StatusBar(props){
   return (
     <div className='characterBox'>
       <style jsx>{`
-          * {
-            margin: 0 auto;
-            position: relative;
-          }
           .characterBox {
             display: flex;
             justify-content: space-around;

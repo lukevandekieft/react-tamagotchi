@@ -4,7 +4,6 @@ import Avatar from './Avatar';
 import { Redirect } from 'react-router-dom';
 import ControlPanel from './ControlPanel';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import RouteButton from './RouteButton';
 
 class ActiveGame extends React.Component{
@@ -27,16 +26,6 @@ class ActiveGame extends React.Component{
     }
     return (
       <div>
-        <style jsx>{`
-            * {
-              margin: 0 auto;
-              position: relative;
-            }
-            h1 {
-              text-align: center;
-              font-family: fantasy;
-            }
-        `}</style>
         <StatusBar
           food={this.props.food}
           sleep={this.props.sleep}
@@ -49,8 +38,8 @@ class ActiveGame extends React.Component{
           onAddStat={this.props.onAddStat}
         />
         <RouteButton 
-        buttonName='Back to Character Select'
-        buttonLink='/choosecharacter'
+          buttonName='Back to Character Select'
+          buttonLink='/choosecharacter'
         />
       </div>
     );

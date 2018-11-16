@@ -47,9 +47,9 @@ class App extends React.Component {
       startStats
     };
     this.handleAddStat = this.handleAddStat.bind(this);
+    this.handleDecreaseStat = this.handleDecreaseStat.bind(this);
     this.handleTimer = this.handleTimer.bind(this);
     this.handleClearTimer = this.handleClearTimer.bind(this);
-    this.handleDecreaseStat = this.handleDecreaseStat.bind(this);
     this.handleSetCharacter = this.handleSetCharacter.bind(this);
     this.handleResetGame = this.handleResetGame.bind(this);
   }
@@ -65,20 +65,20 @@ class App extends React.Component {
   handleClearTimer() {
     clearInterval(this.timer);
   }
+  
+  handleAddStat(stat) {
+    let newCharacterList =  JSON.parse(JSON.stringify(this.state.characterList));
+    newCharacterList[this.state.activeCharacter][stat] = newCharacterList[this.state.activeCharacter][stat] +5;
+    this.setState({
+      characterList: newCharacterList
+    });
+  }
 
   handleDecreaseStat() {
     let newCharacterList =  JSON.parse(JSON.stringify(this.state.characterList));
     newCharacterList[this.state.activeCharacter].food --;
     newCharacterList[this.state.activeCharacter].sleep --;
     newCharacterList[this.state.activeCharacter].play --;
-    this.setState({
-      characterList: newCharacterList
-    });
-  }
-
-  handleAddStat(stat) {
-    let newCharacterList =  JSON.parse(JSON.stringify(this.state.characterList));
-    newCharacterList[this.state.activeCharacter][stat] = newCharacterList[this.state.activeCharacter][stat] +5;
     this.setState({
       characterList: newCharacterList
     });
@@ -101,6 +101,12 @@ class App extends React.Component {
   render() {
     return (
       <div className='mainContainer'>
+        <style jsx global>{`
+          .headerStyles {
+            text-align: center;
+            font-family: fantasy;
+          }
+        `}</style>
         <style jsx>{`
           .mainContainer {
             background-image: url(${backgroundImage});
