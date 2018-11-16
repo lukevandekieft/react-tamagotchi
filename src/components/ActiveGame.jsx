@@ -22,6 +22,7 @@ class ActiveGame extends React.Component{
 
   render () {
     if (this.props.food <= 0 || this.props.play <= 0 || this.props.sleep <= 0) {
+      this.props.onAddHistory('/gameover');
       return <Redirect to='/gameover' />;
     }
     return (

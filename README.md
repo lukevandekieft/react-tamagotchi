@@ -41,7 +41,9 @@ _To download & edit do the following:_
 * _How can I implement CRUD into this project? I'd like to set up a character create section with a handful of pre-selected images. How hard is that to do? Now to find out!_
 * _Routing in this website is non-ideal due to the current dependency on having a "Current Character" feature. You can currently select "Play" on character select without selecting a character and if you refresh on Active Game the screen is broken. I'd like to hide "Play" with an if statement and also fix routing so that it always sends you to the root / path upon refresh._
 * _Sass in React would be awesome. Is that attainable today?_
-* _My partner and I initially focused on functionality over style. Now that the basics are complete there are a number of refactors I could make (delete repetitive functions by making one dynamic one, turn one-off buttons into a dynamic component, etc.)._
+
+_DONE:_
+* _Removed redundant CSS, consolidated redundant functions, and created components for reused assets._
 
 ## Bugs and Issues
 

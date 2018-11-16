@@ -44,7 +44,8 @@ class App extends React.Component {
     this.state = {
       activeCharacter: 'bearsum',
       characterList,
-      startStats
+      startStats,
+      history: []
     };
     this.handleAddStat = this.handleAddStat.bind(this);
     this.handleDecreaseStat = this.handleDecreaseStat.bind(this);
@@ -52,6 +53,7 @@ class App extends React.Component {
     this.handleClearTimer = this.handleClearTimer.bind(this);
     this.handleSetCharacter = this.handleSetCharacter.bind(this);
     this.handleResetGame = this.handleResetGame.bind(this);
+    this.handleAddHistory = this.handleAddHistory.bind(this);
   }
 
   handleTimer() {
@@ -89,6 +91,15 @@ class App extends React.Component {
     this.setState({
       characterList: starterCharacterList
     });
+  }
+  
+  handleAddHistory(route) {
+    let newHistory = JSON.parse(JSON.stringify(this.state.history));
+    newHistory.push(route);
+    this.setState({
+      history: newHistory
+    });
+    console.log(this.state.history);
   }
 
   handleSetCharacter(name) {
@@ -134,7 +145,8 @@ class App extends React.Component {
         <div className='screenContainer'>
           <Switch>
             <Route exact path='/' component={StartScreen}/>
-            <Route path='/choosecharacter' render={()=>(<ChooseCharacter
+            <Route path='/choosecharacter' render={(props)=>(<ChooseCharacter
+              currentRouterPath={props.location.pathname}
               onSetCharacter={this.handleSetCharacter}
               lilaPicture={this.state.characterList['lila'].picture}
               bearsumPicture={this.state.characterList['bearsum'].picture}
@@ -149,6 +161,7 @@ class App extends React.Component {
               onTimer={this.handleTimer}
               onClearTimer={this.handleClearTimer}
               onDecreaseStat={this.handleDecreaseStat}
+              onAddHistory={this.handleAddHistory}
             />)} />
             <Route path='/gameover' render={()=>(<GameOverScreen
               deadPicture={this.state.characterList[this.state.activeCharacter].deadPicture}
