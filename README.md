@@ -8,7 +8,7 @@
 
 _The Tamagotchi is the second best example of a fad toy, narrowly beating out the Fidget Spinner in that it has three times the number of interactive elements. This virtual pet likes to eat, sleep, and play just like the rest of us! Come relive your childhood (or adulthood, no judgment) with this lovely interactive game!_
 
-_Once basic functionality for this game was reached I started considering ways to use it as a React Guinea Pig. Can we have multiple characters? Can we have state exist on one component but reserve intervals for a child component? Can CRUD for new characters be implemented in a non-awkward way? Some aspects of this game may seem counterintuitive but it's been a great project for learning how React reacts to itself. Below you can review the component flow chart for an overview of the structure or the developer notes to see what I've attempted to accomplish in continuing beyond the basics.
+_Once basic functionality for this game was reached I started considering ways to use it as a React Guinea Pig. Can we have multiple characters? Can we have state exist on one component but reserve intervals for a child component? Can CRUD for new characters be implemented in a non-awkward way? Some aspects of this game may seem counterintuitive but it's been a great project for learning how React reacts to itself. Below you can review the component flow chart for an overview of the structure or the developer notes to see what I've attempted to accomplish in continuing beyond the basics._
 
 ![Component Flow](src/assets/images/component-flow.PNG)
 
@@ -40,7 +40,8 @@ _To download & edit do the following:_
 * _I'd like to use a React-equivalent of Angular's ngIf to display Character Select icons rather than the hard-coded set I have. Can I use an object .map equivalent? Character buttons would then need to become a component._
 * _How can I implement CRUD into this project? I'd like to set up a character create section with a handful of pre-selected images. How hard is that to do? Now to find out!_
 * _Routing in this website is non-ideal due to the current dependency on having a "Current Character" feature. You can currently select "Play" on character select without selecting a character and if you refresh on Active Game the screen is broken. I'd like to hide "Play" with an if statement and also fix routing so that it always sends you to the root / path upon refresh._
-* _Sass in React would be awesome. Is that attainable today?
+* _Sass in React would be awesome. Is that attainable today?_
+* _My partner and I initially focused on functionality over style. Now that the basics are complete there are a number of refactors I could make (delete repetitive functions by making one dynamic one, turn one-off buttons into a dynamic component, etc.)._
 
 ## Technologies Used
 
