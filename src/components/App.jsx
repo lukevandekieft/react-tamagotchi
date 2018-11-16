@@ -4,6 +4,7 @@ import StartScreen from './StartScreen';
 import ActiveGame from './ActiveGame';
 import GameOverScreen from './GameOverScreen';
 import ChooseCharacter from './ChooseCharacter';
+import backgroundImage from '../assets/images/tamagotchi-cover.png';
 import bearsumDefault from '../assets/images/bearsumDefault.png';
 import lilaDefault from '../assets/images/lilaDefault.png';
 import rohonDefault from '../assets/images/rohonDefault.png';
@@ -97,16 +98,15 @@ class App extends React.Component {
     });
   }
 
-
   render() {
     return (
       <div className='mainContainer'>
         <style jsx>{`
           .mainContainer {
-            background-image: url('https://images-na.ssl-images-amazon.com/images/I/61htZVHNomL._SL1200_.jpg');
+            background-image: url(${backgroundImage});
             max-width: 916px;
             width: 100vw;
-            height: 98vh;
+            height: 100vh;
             max-height: 1200px;
             background-repeat: no-repeat;
             background-size: cover;
@@ -122,8 +122,7 @@ class App extends React.Component {
           .placeholder {
             height: 25vh;
           }
-
-          `}</style>
+        `}</style>
         <div className="placeholder">
         </div>
         <div className='screenContainer'>
