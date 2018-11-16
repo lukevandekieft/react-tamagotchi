@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import RouteButton from './RouteButton';
 
 function StartScreen(){
   return (
@@ -14,14 +14,12 @@ function StartScreen(){
             text-align: center;
             font-family: fantasy;
           }
-          .playButton {
-            position: relative;
-            display: block;
-            margin-top: 30px;
-          }
       `}</style>
       <h1>Welcome to Tamagotchi!</h1>
-      <Link to='/choosecharacter'><button className='playButton generalButton'>Play!</button></Link>
+      <RouteButton 
+      buttonName='Play!'
+      buttonLink='/choosecharacter'
+      />
     </div>
 
   );

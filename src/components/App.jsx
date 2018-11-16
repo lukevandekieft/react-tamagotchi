@@ -125,18 +125,6 @@ class App extends React.Component {
   render() {
     return (
       <div className='mainContainer'>
-        <style jsx global>{`
-        .generalButton {
-          padding: 5px;
-          border-radius: 5px;
-          box-sizing: border-box;
-          font-size: 1em;
-          font-family: sans-serif;
-          font-weight: 900;
-          color: lightcoral;
-          border: 2px solid lightcoral;
-        }
-      `}</style>
         <style jsx>{`
           .mainContainer {
             background-image: url('https://images-na.ssl-images-amazon.com/images/I/61htZVHNomL._SL1200_.jpg');

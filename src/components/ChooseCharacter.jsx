@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import RouteButton from './RouteButton';
 
 function ChooseCharacter(props){
   return (
@@ -9,13 +10,6 @@ function ChooseCharacter(props){
           * {
             margin: 0 auto;
             position: relative;
-          }
-          .playButton {
-            position: absolute;
-            left: 50%;
-            transform: translate(-50%);
-            display: block;
-            margin-top: 30px;
           }
           h1 {
             text-align: center;
@@ -49,7 +43,10 @@ function ChooseCharacter(props){
           <img src={props.rohonPicture}/>
         </button>
       </div>
-      <Link to='/activegame'><button className='playButton generalButton'>Play!</button></Link>
+      <RouteButton 
+      buttonName='Play!'
+      buttonLink='/activegame'
+      />
     </div>
 
   );
