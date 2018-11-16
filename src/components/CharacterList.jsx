@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Avatar from './Avatar';
+import CharacterButton from './CharacterButton';
 
 function CharacterList(props) {  
   return (
@@ -29,36 +30,22 @@ function CharacterList(props) {
           margin-top: -30px;
         }
       `}</style>
-      <button className='characterButton' onClick={()=>{props.onSetCharacter('lila');}}>
-        <div className='avatarAlign'>
-          <Avatar 
-          picture={props.lilaPicture} 
-          />
-        </div>
-      </button>
-      <button className='characterButton' onClick={()=>{props.onSetCharacter('bearsum');}}>
-        <div className='avatarAlign'>
-          <Avatar 
-          picture={props.bearsumPicture} 
-          />
-        </div>
-      </button>
-      <button className='characterButton' onClick={()=>{props.onSetCharacter('rohon');}}>
-        <div className='avatarAlign'>
-          <Avatar 
-          picture={props.rohonPicture} 
-          />
-        </div>
-      </button>
+      {Object.keys(props.characterList).map(function(characterId) {
+        var character = props.characterList[characterId];
+        return <CharacterButton 
+          name={characterId}
+          picture={character.picture}
+          onSetCharacter={props.onSetCharacter}
+          key={characterId}
+        />;
+      })}
     </div>
   );
 }
 
 CharacterList.propTypes = {
   onSetCharacter: PropTypes.func.isRequired,
-  lilaPicture: PropTypes.string.isRequired,
-  bearsumPicture: PropTypes.string.isRequired,
-  rohonPicture: PropTypes.string.isRequired,
+  characterList: PropTypes.object.isRequired
 }
 
 export default CharacterList;

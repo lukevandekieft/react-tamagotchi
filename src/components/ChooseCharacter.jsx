@@ -12,6 +12,7 @@ function ChooseCharacter(props){
         lilaPicture={props.lilaPicture}
         bearsumPicture={props.bearsumPicture}
         rohonPicture={props.rohonPicture}
+        characterList={props.characterList}
       />
       <RouteButton 
         buttonName='Play!'
@@ -23,9 +24,7 @@ function ChooseCharacter(props){
 
 ChooseCharacter.propTypes = {
   onSetCharacter: PropTypes.func.isRequired,
-  lilaPicture: PropTypes.string.isRequired,
-  bearsumPicture: PropTypes.string.isRequired,
-  rohonPicture: PropTypes.string.isRequired,
+  characterList: PropTypes.object.isRequired
 };
 
 export default ChooseCharacter;

@@ -13,19 +13,19 @@ import lilaDead from '../assets/images/lilaDead.png';
 import rohonDead from '../assets/images/rohonDead.png';
 
 const characterList = {
-  'bearsum' : {
-    food: 10,
-    sleep: 20,
-    play: 25,
-    picture: bearsumDefault,
-    deadPicture: bearsumDead
-  },
   'lila' : {
     food: 5,
     sleep: 10,
     play: 15,
     picture: lilaDefault,
     deadPicture: lilaDead
+  },
+  'bearsum' : {
+    food: 10,
+    sleep: 20,
+    play: 25,
+    picture: bearsumDefault,
+    deadPicture: bearsumDead
   },
   'rohon' : {
     food: 100,
@@ -135,9 +135,7 @@ class App extends React.Component {
             <Route exact path='/' component={StartScreen}/>
             <Route path='/choosecharacter' render={()=>(<ChooseCharacter
               onSetCharacter={this.handleSetCharacter}
-              lilaPicture={this.state.characterList['lila'].picture}
-              bearsumPicture={this.state.characterList['bearsum'].picture}
-              rohonPicture={this.state.characterList['rohon'].picture}
+              characterList={this.state.characterList}
             />)}/>
             <Route path='/activegame' render={()=> (<ActiveGame
               food={this.state.characterList[this.state.activeCharacter].food}
