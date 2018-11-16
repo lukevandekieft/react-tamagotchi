@@ -133,8 +133,7 @@ class App extends React.Component {
         <div className='screenContainer'>
           <Switch>
             <Route exact path='/' component={StartScreen}/>
-            <Route path='/choosecharacter' render={(props)=>(<ChooseCharacter
-              currentRouterPath={props.location.pathname}
+            <Route path='/choosecharacter' render={()=>(<ChooseCharacter
               onSetCharacter={this.handleSetCharacter}
               lilaPicture={this.state.characterList['lila'].picture}
               bearsumPicture={this.state.characterList['bearsum'].picture}
