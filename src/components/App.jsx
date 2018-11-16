@@ -21,20 +21,20 @@ const characterList = {
   },
   'lila' : {
     food: 5,
-    sleep: 100,
-    play: 100,
+    sleep: 10,
+    play: 15,
     picture: lilaDefault,
     deadPicture: lilaDead
   },
   'rohon' : {
-    food: 1000,
-    sleep: 1000,
-    play: 1000,
+    food: 100,
+    sleep: 20,
+    play: 5,
     picture: rohonDefault,
     deadPicture: rohonDead
   }
-}
-const startStats = characterList
+};
+const startStats = characterList;
 
 class App extends React.Component {
 
@@ -115,7 +115,6 @@ class App extends React.Component {
   }
 
   handleSetCharacter(name) {
-    console.log(this.state.activeCharacter);
     let newActiveCharacter = name;
     this.setState({
       activeCharacter: newActiveCharacter
@@ -125,8 +124,8 @@ class App extends React.Component {
 
   render() {
     return (
-    <div className='mainContainer'>
-      <style jsx global>{`
+      <div className='mainContainer'>
+        <style jsx global>{`
         .generalButton {
           padding: 5px;
           border-radius: 5px;
@@ -138,7 +137,7 @@ class App extends React.Component {
           border: 2px solid lightcoral;
         }
       `}</style>
-      <style jsx>{`
+        <style jsx>{`
           .mainContainer {
             background-image: url('https://images-na.ssl-images-amazon.com/images/I/61htZVHNomL._SL1200_.jpg');
             max-width: 916px;
@@ -163,33 +162,33 @@ class App extends React.Component {
           `}</style>
         <div className="placeholder">
         </div>
-      <div className='screenContainer'>
-        <Switch>
-          <Route exact path='/' component={StartScreen}/>
-          <Route path='/choosecharacter' render={()=>(<ChooseCharacter
+        <div className='screenContainer'>
+          <Switch>
+            <Route exact path='/' component={StartScreen}/>
+            <Route path='/choosecharacter' render={()=>(<ChooseCharacter
               onSetCharacter={this.handleSetCharacter}
               lilaPicture={this.state.characterList['lila'].picture}
               bearsumPicture={this.state.characterList['bearsum'].picture}
               rohonPicture={this.state.characterList['rohon'].picture}
-              />)}/>
+            />)}/>
             <Route path='/activegame' render={()=> (<ActiveGame
-                food={this.state.characterList[this.state.activeCharacter].food}
-                sleep={this.state.characterList[this.state.activeCharacter].sleep}
-                play={this.state.characterList[this.state.activeCharacter].play}
-                picture={this.state.characterList[this.state.activeCharacter].picture}
-                onAddFood={this.handleAddFood}
-                onAddSleep={this.handleAddSleep}
-                onAddPlay={this.handleAddPlay}
-                onTimer={this.handleTimer}
-                onClearTimer={this.handleClearTimer}
-                onDecreaseStat={this.handleDecreaseStat}
-                />)} />
-              <Route path='/gameover' render={()=>(<GameOverScreen
-                  deadPicture={this.state.characterList[this.state.activeCharacter].deadPicture}
-                  onResetGame={this.handleResetGame}
-                  />)}/>
-            </Switch>
-          </div>
+              food={this.state.characterList[this.state.activeCharacter].food}
+              sleep={this.state.characterList[this.state.activeCharacter].sleep}
+              play={this.state.characterList[this.state.activeCharacter].play}
+              picture={this.state.characterList[this.state.activeCharacter].picture}
+              onAddFood={this.handleAddFood}
+              onAddSleep={this.handleAddSleep}
+              onAddPlay={this.handleAddPlay}
+              onTimer={this.handleTimer}
+              onClearTimer={this.handleClearTimer}
+              onDecreaseStat={this.handleDecreaseStat}
+            />)} />
+            <Route path='/gameover' render={()=>(<GameOverScreen
+              deadPicture={this.state.characterList[this.state.activeCharacter].deadPicture}
+              onResetGame={this.handleResetGame}
+            />)}/>
+          </Switch>
+        </div>
       </div>
     );
   }

@@ -56,7 +56,7 @@ class ActiveGame extends React.Component{
           onAddSleep={this.props.onAddSleep}
           onAddPlay={this.props.onAddPlay}
         />
-      <Link to='/choosecharacter'><button className='playButton generalButton'>Back to Character Select</button></Link>
+        <Link to='/choosecharacter'><button className='playButton generalButton'>Back to Character Select</button></Link>
       </div>
     );
   }

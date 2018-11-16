@@ -15,7 +15,7 @@ function ControlPanel({onAddFood, onAddSleep, onAddPlay}){
             margin-top: 10px;
           }
       `}</style>
-    <button className='generalButton' onClick={onAddFood}>Feed Me!</button>
+      <button className='generalButton' onClick={onAddFood}>Feed Me!</button>
       <button className='generalButton' onClick={onAddSleep}>Tuck me in!</button>
       <button className='generalButton' onClick={onAddPlay}>I'm Lonely!</button>
     </div>

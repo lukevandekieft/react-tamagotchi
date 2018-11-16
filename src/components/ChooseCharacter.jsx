@@ -39,16 +39,16 @@ function ChooseCharacter(props){
       `}</style>
       <h1>Choose a Character</h1>
       <div className='characterBox'>
-      <button className='characterButton' onClick={()=>{props.onSetCharacter('lila');}}>
-        <img src={props.lilaPicture} />
-      </button>
-      <button className='characterButton' onClick={()=>{props.onSetCharacter('bearsum');}}>
-        <img src={props.bearsumPicture}/>
-      </button>
-      <button className='characterButton' onClick={()=>{props.onSetCharacter('rohon');}}>
-        <img src={props.rohonPicture}/>
-      </button>
-    </div>
+        <button className='characterButton' onClick={()=>{props.onSetCharacter('lila');}}>
+          <img src={props.lilaPicture} />
+        </button>
+        <button className='characterButton' onClick={()=>{props.onSetCharacter('bearsum');}}>
+          <img src={props.bearsumPicture}/>
+        </button>
+        <button className='characterButton' onClick={()=>{props.onSetCharacter('rohon');}}>
+          <img src={props.rohonPicture}/>
+        </button>
+      </div>
       <Link to='/activegame'><button className='playButton generalButton'>Play!</button></Link>
     </div>
 
