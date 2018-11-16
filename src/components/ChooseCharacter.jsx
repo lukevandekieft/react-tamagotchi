@@ -8,10 +8,6 @@ function ChooseCharacter(props){
   return (
     <div>
       <style jsx>{`
-          * {
-            margin: 0 auto;
-            position: relative;
-          }
           h1 {
             text-align: center;
             font-family: fantasy;

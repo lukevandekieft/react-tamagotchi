@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function ControlPanel({onAddFood, onAddSleep, onAddPlay}){
+function ControlPanel({onAddStat}){
   return (
     <div className='characterBox'>
       <style jsx>{`
@@ -15,18 +15,16 @@ function ControlPanel({onAddFood, onAddSleep, onAddPlay}){
             margin-top: 10px;
           }
       `}</style>
-      <button className='generalButton' onClick={onAddFood}>Feed Me!</button>
-      <button className='generalButton' onClick={onAddSleep}>Tuck me in!</button>
-      <button className='generalButton' onClick={onAddPlay}>I'm Lonely!</button>
+      <button className='generalButton' onClick={()=>{onAddStat('food');}}>Feed Me!</button>
+      <button className='generalButton' onClick={()=>{onAddStat('sleep');}}>Tuck me in!</button>
+      <button className='generalButton' onClick={()=>{onAddStat('play');}}>I'm Lonely!</button>
     </div>
 
   );
 }
 
 ControlPanel.propTypes = {
-  onAddFood: PropTypes.func.isRequired,
-  onAddSleep: PropTypes.func.isRequired,
-  onAddPlay: PropTypes.func.isRequired,
+  onAddStat: PropTypes.func.isRequired
 };
 
 export default ControlPanel;

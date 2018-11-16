@@ -46,9 +46,7 @@ class ActiveGame extends React.Component{
           picture={this.props.picture}
         />
         <ControlPanel
-          onAddFood={this.props.onAddFood}
-          onAddSleep={this.props.onAddSleep}
-          onAddPlay={this.props.onAddPlay}
+          onAddStat={this.props.onAddStat}
         />
         <RouteButton 
         buttonName='Back to Character Select'
@@ -64,9 +62,7 @@ ActiveGame.propTypes = {
   sleep: PropTypes.number.isRequired,
   play: PropTypes.number.isRequired,
   picture: PropTypes.string.isRequired,
-  onAddFood: PropTypes.func.isRequired,
-  onAddSleep: PropTypes.func.isRequired,
-  onAddPlay: PropTypes.func.isRequired,
+  onAddStat: PropTypes.func.isRequired,
   onTimer: PropTypes.func.isRequired,
   onClearTimer: PropTypes.func.isRequired
 };

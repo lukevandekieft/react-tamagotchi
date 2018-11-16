@@ -45,16 +45,13 @@ class App extends React.Component {
       characterList,
       startStats
     };
-    this.handleAddFood = this.handleAddFood.bind(this);
-    this.handleAddSleep = this.handleAddSleep.bind(this);
-    this.handleAddPlay = this.handleAddPlay.bind(this);
+    this.handleAddStat = this.handleAddStat.bind(this);
     this.handleTimer = this.handleTimer.bind(this);
     this.handleClearTimer = this.handleClearTimer.bind(this);
     this.handleDecreaseStat = this.handleDecreaseStat.bind(this);
     this.handleSetCharacter = this.handleSetCharacter.bind(this);
     this.handleResetGame = this.handleResetGame.bind(this);
   }
-
 
   handleTimer() {
     this.timer = setInterval(() => {
@@ -68,10 +65,6 @@ class App extends React.Component {
     clearInterval(this.timer);
   }
 
-  // selectCharacter() {
-  //
-  // }
-
   handleDecreaseStat() {
     let newCharacterList =  JSON.parse(JSON.stringify(this.state.characterList));
     newCharacterList[this.state.activeCharacter].food --;
@@ -82,26 +75,9 @@ class App extends React.Component {
     });
   }
 
-
-  handleAddFood() {
+  handleAddStat(stat) {
     let newCharacterList =  JSON.parse(JSON.stringify(this.state.characterList));
-    newCharacterList[this.state.activeCharacter].food = newCharacterList[this.state.activeCharacter].food +5;
-    this.setState({
-      characterList: newCharacterList
-    });
-  }
-
-  handleAddSleep() {
-    let newCharacterList =  JSON.parse(JSON.stringify(this.state.characterList));
-    newCharacterList[this.state.activeCharacter].sleep = newCharacterList[this.state.activeCharacter].sleep +5;
-    this.setState({
-      characterList: newCharacterList
-    });
-  }
-
-  handleAddPlay() {
-    let newCharacterList =  JSON.parse(JSON.stringify(this.state.characterList));
-    newCharacterList[this.state.activeCharacter].play = newCharacterList[this.state.activeCharacter].play +5;
+    newCharacterList[this.state.activeCharacter][stat] = newCharacterList[this.state.activeCharacter][stat] +5;
     this.setState({
       characterList: newCharacterList
     });
@@ -164,9 +140,7 @@ class App extends React.Component {
               sleep={this.state.characterList[this.state.activeCharacter].sleep}
               play={this.state.characterList[this.state.activeCharacter].play}
               picture={this.state.characterList[this.state.activeCharacter].picture}
-              onAddFood={this.handleAddFood}
-              onAddSleep={this.handleAddSleep}
-              onAddPlay={this.handleAddPlay}
+              onAddStat={this.handleAddStat}
               onTimer={this.handleTimer}
               onClearTimer={this.handleClearTimer}
               onDecreaseStat={this.handleDecreaseStat}
