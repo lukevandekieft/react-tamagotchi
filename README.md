@@ -43,6 +43,10 @@ _To download & edit do the following:_
 * _Sass in React would be awesome. Is that attainable today?_
 * _My partner and I initially focused on functionality over style. Now that the basics are complete there are a number of refactors I could make (delete repetitive functions by making one dynamic one, turn one-off buttons into a dynamic component, etc.)._
 
+## Bugs and Issues
+
+* _RouteButtons currently fire the optional props.onResetGame function whenever they're clicked. This causes no discernable errors but clogs up the console log. Should I pass a dummy function or is there a better way to fix this?
+
 ## Technologies Used
 
 * _React Library_

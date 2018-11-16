@@ -31,7 +31,7 @@ function RouteButton(props){
 RouteButton.propTypes = {
   buttonName: PropTypes.string.isRequired,
   buttonLink: PropTypes.string.isRequired,
-  onResetGame: PropTypes.string
+  onResetGame: PropTypes.func
 };
 
 export default RouteButton;

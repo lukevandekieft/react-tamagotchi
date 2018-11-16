@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import RouteButton from './RouteButton';
+import Avatar from './Avatar';
 
 function GameOverScreen(props){
   return (
@@ -16,8 +18,9 @@ function GameOverScreen(props){
           }
       `}</style>
       <h1>Game Over!</h1>
-      <img className='playButton' src={props.deadPicture}/>
-      
+      <Avatar 
+      picture={props.deadPicture}
+      />
       <RouteButton 
       buttonName='Play Again?'
       buttonLink='/'
