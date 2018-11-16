@@ -13,11 +13,10 @@ function RouteButton(props){
           display: block;
           margin-top: 30px;
           padding: 5px;
-          border-radius: 5px;
           box-sizing: border-box;
           font-size: 1em;
-          font-family: sans-serif;
           font-weight: 900;
+          border-radius: 5px;
           color: lightcoral;
           border: 2px solid lightcoral;
           background-color: white;

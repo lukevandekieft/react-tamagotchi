@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import StartScreen from './StartScreen';
 import ActiveGame from './ActiveGame';
 import GameOverScreen from './GameOverScreen';
@@ -33,13 +33,6 @@ const characterList = {
     play: 5,
     picture: rohonDefault,
     deadPicture: rohonDead
-  },
-  'error' : {
-    food: 999,
-    sleep: 999,
-    play: 999,
-    picture: rohonDefault,
-    deadPicture: rohonDead
   }
 };
 const startStats = characterList;
@@ -48,7 +41,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeCharacter: 'error',
+      activeCharacter: 'bearsum',
       characterList,
       startStats,
       history: []
@@ -111,13 +104,12 @@ class App extends React.Component {
         <style jsx global>{`
           .headerStyles {
             text-align: center;
-            font-family: fantasy;
           }
         `}</style>
         <style jsx>{`
           .mainContainer {
             background-image: url(${backgroundImage});
-            max-width: 916px;
+            max-width: 700px;
             width: 100vw;
             height: 100vh;
             max-height: 1200px;
@@ -128,7 +120,7 @@ class App extends React.Component {
           .screenContainer {
             width: 50vw;
             height: 50vh;
-            max-width: 480px;
+            max-width: 400px;
             max-height: 440px;
             top: 25%;
           }

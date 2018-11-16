@@ -7,24 +7,28 @@ function ChooseCharacter(props){
   return (
     <div>
       <style jsx>{`
-          .characterBox {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 10px;
-          }
-          .characterButton:focus {
-            border: lightcoral solid 10px;
-            background-color: pink;
-            outline: none;
-          }
-          .characterButton {
-            width: 100px;
-            height: 100px;
-            box-sizing: border-box;
-          }
-          .avatarAlign {
-            margin-top: -30px;
-          }
+        .characterBox {
+          display: flex;
+          justify-content: space-around;
+          margin-top: 10px;
+        }
+        .characterButton:focus {
+          border: lightcoral solid 8px;
+          background-color: pink;
+          outline: none;
+        }
+        .characterButton {
+          width: 100px;
+          height: 100px;
+          box-sizing: border-box;
+          border-radius: 15%;
+          color: lightcoral;
+          border: 3px solid lightcoral;
+          background-color: white;
+        }
+        .avatarAlign {
+          margin-top: -30px;
+        }
       `}</style>
       <h1 className='headerStyles'>Choose a Character</h1>
       <div className='characterBox'>
@@ -55,10 +59,8 @@ function ChooseCharacter(props){
         buttonLink='/activegame'
       />
     </div>
-
   );
 }
-
 
 ChooseCharacter.propTypes = {
   onSetCharacter: PropTypes.func.isRequired,

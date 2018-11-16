@@ -14,10 +14,6 @@ class ActiveGame extends React.Component{
 
   componentDidMount() {
     this.props.onTimer();
-    // if (this.props.activeCharacter === 'error' && this.navigationTries === 0) {
-    //   this.navigationTries ++;
-    //   return <Redirect to='/' />;
-    // }
   }
 
   componentWillUnmount(){
@@ -26,7 +22,6 @@ class ActiveGame extends React.Component{
 
   render () {
     if (this.props.food <= 0 || this.props.play <= 0 || this.props.sleep <= 0) {
-      this.props.onAddHistory('/gameover');
       return <Redirect to='/gameover' />;
     }
     return (

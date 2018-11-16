@@ -15,14 +15,12 @@ function GameOverScreen(props){
         buttonLink='/'
         onResetGame={props.onResetGame}
       />
-
     </div>
-
   );
 }
 
 GameOverScreen.propTypes = {
-  deadPicture: PropTypes.string.isRequired,
+  deadPicture: PropTypes.string,
   onResetGame: PropTypes.func.isRequired
 };
 

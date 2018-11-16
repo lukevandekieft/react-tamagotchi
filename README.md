@@ -39,8 +39,6 @@ _To download & edit do the following:_
 
 * _I'd like to use a React-equivalent of Angular's ngIf to display Character Select icons rather than the hard-coded set I have. Can I use an object .map equivalent? Character buttons would then need to become a component._
 * _How can I implement CRUD into this project? I'd like to set up a character create section with a handful of pre-selected images. How hard is that to do? Now to find out!_
-* _Routing in this website is non-ideal due to the current dependency on having a "Current Character" feature. You can currently select "Play" on character select without selecting a character and if you refresh on Active Game the screen is broken. I'd like to hide "Play" with an if statement and also fix routing so that it always sends you to the root / path upon refresh._
-  * _UPDATE: history functions appear to either use the deprecated componentWillMount function or Redux which we're learning next week. After an hour of trying I'm shelving this for next week._
 * _Sass in React would be awesome. Is that attainable today?_
 
 _DONE:_
@@ -49,6 +47,8 @@ _DONE:_
 ## Bugs and Issues
 
 * _RouteButtons currently fire the optional props.onResetGame function whenever they're clicked. This causes no discernable errors but clogs up the console log. Should I pass a dummy function or is there a better way to fix this?
+* _Routing in this website is non-ideal due to the current dependency on having a "Current Character" feature. You can currently select "Play" on character select without selecting a character and if you refresh on Active Game the screen is broken. I'd like to hide "Play" with an if statement and also fix routing so that it always sends you to the root / path upon refresh._
+  * _UPDATE: history functions appear to either use the deprecated componentWillMount function or Redux which we're learning next week. After an hour of trying I'm shelving this for next week._
 
 ## Technologies Used
 

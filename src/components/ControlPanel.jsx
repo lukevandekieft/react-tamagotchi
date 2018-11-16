@@ -16,8 +16,6 @@ function ControlPanel({onAddStat}){
           border-radius: 5px;
           box-sizing: border-box;
           font-size: 1em;
-          font-family: sans-serif;
-          font-weight: 900;
           color: lightcoral;
           border: 2px solid lightcoral;
           background-color: white;
@@ -27,7 +25,6 @@ function ControlPanel({onAddStat}){
       <button className='generalButton' onClick={()=>{onAddStat('sleep');}}>Tuck me in!</button>
       <button className='generalButton' onClick={()=>{onAddStat('play');}}>I'm Lonely!</button>
     </div>
-
   );
 }
 
