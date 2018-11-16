@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import StartScreen from './StartScreen';
 import ActiveGame from './ActiveGame';
 import GameOverScreen from './GameOverScreen';
@@ -33,16 +33,22 @@ const characterList = {
     play: 5,
     picture: rohonDefault,
     deadPicture: rohonDead
+  },
+  'error' : {
+    food: 999,
+    sleep: 999,
+    play: 999,
+    picture: rohonDefault,
+    deadPicture: rohonDead
   }
 };
 const startStats = characterList;
 
 class App extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      activeCharacter: 'bearsum',
+      activeCharacter: 'error',
       characterList,
       startStats,
       history: []
@@ -53,9 +59,8 @@ class App extends React.Component {
     this.handleClearTimer = this.handleClearTimer.bind(this);
     this.handleSetCharacter = this.handleSetCharacter.bind(this);
     this.handleResetGame = this.handleResetGame.bind(this);
-    this.handleAddHistory = this.handleAddHistory.bind(this);
   }
-
+  
   handleTimer() {
     this.timer = setInterval(() => {
       this.handleDecreaseStat();
@@ -91,15 +96,6 @@ class App extends React.Component {
     this.setState({
       characterList: starterCharacterList
     });
-  }
-  
-  handleAddHistory(route) {
-    let newHistory = JSON.parse(JSON.stringify(this.state.history));
-    newHistory.push(route);
-    this.setState({
-      history: newHistory
-    });
-    console.log(this.state.history);
   }
 
   handleSetCharacter(name) {
@@ -157,11 +153,11 @@ class App extends React.Component {
               sleep={this.state.characterList[this.state.activeCharacter].sleep}
               play={this.state.characterList[this.state.activeCharacter].play}
               picture={this.state.characterList[this.state.activeCharacter].picture}
+              activeCharacter={this.state.activeCharacter}
               onAddStat={this.handleAddStat}
               onTimer={this.handleTimer}
               onClearTimer={this.handleClearTimer}
               onDecreaseStat={this.handleDecreaseStat}
-              onAddHistory={this.handleAddHistory}
             />)} />
             <Route path='/gameover' render={()=>(<GameOverScreen
               deadPicture={this.state.characterList[this.state.activeCharacter].deadPicture}

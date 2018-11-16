@@ -14,6 +14,10 @@ class ActiveGame extends React.Component{
 
   componentDidMount() {
     this.props.onTimer();
+    // if (this.props.activeCharacter === 'error' && this.navigationTries === 0) {
+    //   this.navigationTries ++;
+    //   return <Redirect to='/' />;
+    // }
   }
 
   componentWillUnmount(){

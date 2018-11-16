@@ -10,7 +10,6 @@ function StartScreen(){
         buttonLink='/choosecharacter'
       />
     </div>
-
   );
 }
 
