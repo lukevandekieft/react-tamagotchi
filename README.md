@@ -52,6 +52,7 @@ _DONE:_
 * _RouteButtons currently fire the optional props.onResetGame function whenever they're clicked. This causes no discernable errors but clogs up the console log. Should I pass a dummy function, can I make functions optional (e.g. process locally), or is there a better way to fix this?_
 * _If you select "Play" on Character Select without selecting someone the active character defaults to Bearsum - same goes for refreshes. I'd like to use history functions but they appear to rely on either the deprecated componentWillMount function or Redux which we're learning next week. I'm shelving this for next week._
 * _Character creation can pass dud characters if not handled correctly. Can I set default values and/or hide the Submit button until all values are active? These seem to rely on an onChange type listener._
+* _GH Pages not recognizing index.ejs as root file._
 
 ## Technologies Used
 
