@@ -40,6 +40,7 @@ _To download & edit do the following:_
 * _With more time I'd like to add the UD part of CRUD to character creation._
 * _Sass in React would be awesome. Is that attainable today?_
 * _Character Creation page needs further CSS work._
+* _Can I make Character Creation button a submit AND a link? They seem to cancel each other out no matter how I splice it._
 
 _DONE:_
 * _Removed redundant CSS, consolidated redundant functions, and created components for reused assets._
