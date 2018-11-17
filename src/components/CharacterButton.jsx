@@ -38,7 +38,7 @@ function CharacterButton(props) {
 CharacterButton.propTypes = {
   name: PropTypes.string.isRequired,
   picture: PropTypes.string.isRequired,
-  onSetCharacter: PropTypes.func
+  onSetCharacter: PropTypes.any
 }
 
 export default CharacterButton;

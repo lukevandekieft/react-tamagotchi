@@ -64,6 +64,7 @@ class App extends React.Component {
     this.handleTimer = this.handleTimer.bind(this);
     this.handleClearTimer = this.handleClearTimer.bind(this);
     this.handleSetCharacter = this.handleSetCharacter.bind(this);
+    this.handleAddNewCharacter = this.handleAddNewCharacter.bind(this);
     this.handleResetGame = this.handleResetGame.bind(this);
   }
   
@@ -110,6 +111,11 @@ class App extends React.Component {
       activeCharacter: newActiveCharacter
     });
   }
+  
+  handleAddNewCharacter(character) {
+    let newCharacterList = Object.assign({}, this.state.characterList, {[character.id]: character});
+    this.setState({characterList: newCharacterList})
+  }
 
   render() {
     return (
@@ -153,6 +159,7 @@ class App extends React.Component {
             <Route path='/charactercreation' render={()=>(<CharacterCreation
               characterList={this.state.characterList}
               templateCharacters={this.state.templateCharacters}
+              onAddNewCharacter={this.handleAddNewCharacter}
             />)}/>
             <Route path='/activegame' render={()=> (<ActiveGame
               food={this.state.characterList[this.state.activeCharacter].food}
