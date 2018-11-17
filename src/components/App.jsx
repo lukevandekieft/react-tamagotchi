@@ -118,6 +118,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.characterList)
     return (
       <div className='mainContainer'>
         <style jsx global>{`

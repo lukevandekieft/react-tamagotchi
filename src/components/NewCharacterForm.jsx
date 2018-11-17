@@ -7,18 +7,17 @@ function NewCharacterForm(props){
   let _food = '20';
   let _sleep = '20';
   let _play = '20';
-  let _picture = character.picture;
-  let _deadPicture = character.deadPicture;
 
   function handleCharacterFormSubmission(event) {
     event.preventDefault();
+    console.log(String(props.templateCharacters['pixie'].deadPicture))
     props.onAddNewCharacter({
       id: _name.value,
       food: _food.value,
       sleep: _sleep.value,
       play: _play.value,
-      picture: _picture.value,
-      deadPicture: _deadPicture.value,
+      picture: character.picture,
+      deadPicture: character.deadPicture
     })
     _name = 'Pixie';
     _food = '20';

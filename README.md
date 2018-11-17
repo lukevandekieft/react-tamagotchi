@@ -37,19 +37,20 @@ _To download & edit do the following:_
 
 ## Development Notes
 
-* _How can I implement CRUD into this project? I'd like to set up a character create section with a handful of pre-selected images. How hard is that to do? Now to find out!_
+* _With more time I'd like to add the UD part of CRUD to character creation._
 * _Sass in React would be awesome. Is that attainable today?_
 
 _DONE:_
 * _Removed redundant CSS, consolidated redundant functions, and created components for reused assets._
 * _Switched character list from hardcoded items to an object mapping function._
 * _Cleaned up improper CSS stylings._
+* _Add Character Creation section._
 
 ## Bugs and Issues
 
-* _RouteButtons currently fire the optional props.onResetGame function whenever they're clicked. This causes no discernable errors but clogs up the console log. Should I pass a dummy function or is there a better way to fix this?
-* _Routing in this website is non-ideal due to the current dependency on having a "Current Character" feature. You can currently select "Play" on character select without selecting a character and if you refresh on Active Game the screen is broken. I'd like to hide "Play" with an if statement and also fix routing so that it always sends you to the root / path upon refresh._
-  * _UPDATE: history functions appear to either use the deprecated componentWillMount function or Redux which we're learning next week. After an hour of trying I'm shelving this for next week._
+* _RouteButtons currently fire the optional props.onResetGame function whenever they're clicked. This causes no discernable errors but clogs up the console log. Should I pass a dummy function, can I make functions optional (e.g. process locally), or is there a better way to fix this?_
+* _If you select "Play" on Character Select without selecting someone the active character defaults to Bearsum - same goes for refreshes. I'd like to use history functions but they appear to rely on either the deprecated componentWillMount function or Redux which we're learning next week. I'm shelving this for next week._
+* _Character creation can pass dud characters if not handled correctly. Can I set default values and/or hide the Submit button until all values are active? These seem to rely on an onChange type listener._
 
 ## Technologies Used
 
