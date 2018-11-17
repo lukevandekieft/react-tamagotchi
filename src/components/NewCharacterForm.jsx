@@ -74,7 +74,7 @@ function NewCharacterForm(props){
             placeholder='20'
             ref={(input) => {_play = input;}}/>
         </div>
-        <button type='submit'><Link to='choosecharacter'>Submit</Link></button>
+        <button type='submit'>Submit</button>
       </form>
     </div>
   );
