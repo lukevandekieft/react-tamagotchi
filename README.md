@@ -39,6 +39,7 @@ _To download & edit do the following:_
 
 * _With more time I'd like to add the UD part of CRUD to character creation._
 * _Sass in React would be awesome. Is that attainable today?_
+* _Character Creation page needs further CSS work._
 
 _DONE:_
 * _Removed redundant CSS, consolidated redundant functions, and created components for reused assets._

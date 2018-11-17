@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 function NewCharacterForm(props){
   const character = props.templateCharacters['pixie'];
@@ -27,28 +28,54 @@ function NewCharacterForm(props){
 
   return (
     <div>
+      <style jsx>{`
+        input, button {
+          max-width: 45%;
+          margin: 10px auto 0 auto;
+          padding: 5px;
+          box-sizing: border-box;
+          font-size: 1em;
+          font-weight: 900;
+          border-radius: 5px;
+          color: lightcoral;
+          border: 2px solid lightcoral;
+          background-color: white;
+        }
+        button {
+          display: block;
+          margin: 20px auto -10px auto;
+        }
+        .inputContainer {
+          display: flex;
+          justify-content: space-between;
+        }
+      `}</style>
       <form onSubmit={handleCharacterFormSubmission}>
-        <input
+        <div className='inputContainer'>
+          <input
           type='text'
           id='name'
           placeholder='Pixie'
           ref={(input) => {_name = input;}}/>
-        <input
+          <input
           type='number'
           id='food'
           placeholder='20'
           ref={(input) => {_food = input;}}/>
-        <input
+        </div>
+        <div className='inputContainer'>
+          <input
           type='number'
           id='sleep'
           placeholder='20'
           ref={(input) => {_sleep = input;}}/>
-        <input
+          <input
           type='number'
           id='play'
           placeholder='20'
           ref={(input) => {_play = input;}}/>
-        <button type='submit'>Submit</button>
+        </div>
+        <button type='submit'><Link to='choosecharacter'>Submit</Link></button>
       </form>
     </div>
   );

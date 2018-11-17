@@ -11,6 +11,8 @@ function CharacterList(props) {
           display: flex;
           justify-content: space-around;
           margin-top: 10px;
+          overflow: auto;
+          box-sizing: padding-box;
         }
       `}</style>
       {Object.keys(props.characterList).map(function(characterId) {
