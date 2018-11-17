@@ -11,7 +11,6 @@ function NewCharacterForm(props){
 
   function handleCharacterFormSubmission(event) {
     event.preventDefault();
-    console.log(String(props.templateCharacters['pixie'].deadPicture))
     props.onAddNewCharacter({
       id: _name.value,
       food: _food.value,
@@ -19,7 +18,7 @@ function NewCharacterForm(props){
       play: _play.value,
       picture: character.picture,
       deadPicture: character.deadPicture
-    })
+    });
     _name = 'Pixie';
     _food = '20';
     _sleep = '20';
@@ -53,27 +52,27 @@ function NewCharacterForm(props){
       <form onSubmit={handleCharacterFormSubmission}>
         <div className='inputContainer'>
           <input
-          type='text'
-          id='name'
-          placeholder='Pixie'
-          ref={(input) => {_name = input;}}/>
+            type='text'
+            id='name'
+            placeholder='Pixie'
+            ref={(input) => {_name = input;}}/>
           <input
-          type='number'
-          id='food'
-          placeholder='20'
-          ref={(input) => {_food = input;}}/>
+            type='number'
+            id='food'
+            placeholder='20'
+            ref={(input) => {_food = input;}}/>
         </div>
         <div className='inputContainer'>
           <input
-          type='number'
-          id='sleep'
-          placeholder='20'
-          ref={(input) => {_sleep = input;}}/>
+            type='number'
+            id='sleep'
+            placeholder='20'
+            ref={(input) => {_sleep = input;}}/>
           <input
-          type='number'
-          id='play'
-          placeholder='20'
-          ref={(input) => {_play = input;}}/>
+            type='number'
+            id='play'
+            placeholder='20'
+            ref={(input) => {_play = input;}}/>
         </div>
         <button type='submit'><Link to='choosecharacter'>Submit</Link></button>
       </form>

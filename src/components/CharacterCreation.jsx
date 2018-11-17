@@ -12,9 +12,9 @@ function CharacterCreation(props){
         characterList={props.templateCharacters}
       />
       <NewCharacterForm
-      characterList={props.templateCharacters}
-      templateCharacters={props.templateCharacters}
-      onAddNewCharacter={props.onAddNewCharacter}
+        characterList={props.templateCharacters}
+        templateCharacters={props.templateCharacters}
+        onAddNewCharacter={props.onAddNewCharacter}
       />
       <RouteButton 
         buttonName='Back to Character Select'

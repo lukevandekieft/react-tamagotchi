@@ -9,9 +9,6 @@ function ChooseCharacter(props){
       <h1 className='headerStyles'>Choose a Character</h1>
       <CharacterList 
         onSetCharacter={props.onSetCharacter}
-        lilaPicture={props.lilaPicture}
-        bearsumPicture={props.bearsumPicture}
-        rohonPicture={props.rohonPicture}
         characterList={props.characterList}
       />
       <RouteButton 

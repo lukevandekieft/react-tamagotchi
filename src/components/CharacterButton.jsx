@@ -27,7 +27,7 @@ function CharacterButton(props) {
       <button className='characterButton' onClick={()=>{props.onSetCharacter(props.name);}}>
         <div className='avatarAlign'>
           <Avatar 
-          picture={props.picture} 
+            picture={props.picture} 
           />
         </div>
       </button>
@@ -39,6 +39,6 @@ CharacterButton.propTypes = {
   name: PropTypes.string.isRequired,
   picture: PropTypes.string.isRequired,
   onSetCharacter: PropTypes.any
-}
+};
 
 export default CharacterButton;

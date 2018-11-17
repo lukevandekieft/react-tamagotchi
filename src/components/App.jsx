@@ -56,8 +56,7 @@ class App extends React.Component {
       activeCharacter: 'bearsum',
       characterList,
       startStats,
-      templateCharacters,
-      history: []
+      templateCharacters
     };
     this.handleAddStat = this.handleAddStat.bind(this);
     this.handleDecreaseStat = this.handleDecreaseStat.bind(this);
@@ -114,11 +113,10 @@ class App extends React.Component {
   
   handleAddNewCharacter(character) {
     let newCharacterList = Object.assign({}, this.state.characterList, {[character.id]: character});
-    this.setState({characterList: newCharacterList})
+    this.setState({characterList: newCharacterList});
   }
 
   render() {
-    console.log(this.state.characterList)
     return (
       <div className='mainContainer'>
         <style jsx global>{`

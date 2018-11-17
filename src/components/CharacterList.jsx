@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Avatar from './Avatar';
 import CharacterButton from './CharacterButton';
 
 function CharacterList(props) {  
@@ -31,6 +30,6 @@ function CharacterList(props) {
 CharacterList.propTypes = {
   onSetCharacter: PropTypes.func,
   characterList: PropTypes.object.isRequired
-}
+};
 
 export default CharacterList;
