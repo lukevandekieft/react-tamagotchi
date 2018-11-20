@@ -9,12 +9,18 @@
 _The Tamagotchi is the second best example of a fad toy, narrowly beating out the Fidget Spinner in that it has three times the number of interactive elements. This virtual pet likes to eat, sleep, and play just like the rest of us! Come relive your childhood (or adulthood, no judgment) with this lovely interactive game!_
 
 _Once basic functionality for this game was reached I started considering ways to use it as a React Guinea Pig. Can we have multiple characters? Can we have state exist on one component but reserve intervals for a child component? Can CRUD for new characters be implemented in a non-awkward way? Some aspects of this game may seem counterintuitive but it's been a great project for learning how React reacts to itself. Below you can review the component flow chart for an overview of the structure or the developer notes to see what I've attempted to accomplish in continuing beyond the basics._
-
+<br>
+<br>
+<kbd>
+  <img src="https://github.com/lukevandekieft/react-tamagotchi/blob/master/src/assets/images/live-site.gif">
+</kbd>
+<br>
+<br>
 ![Component Flow](src/assets/images/component-flow.PNG)
 
 ## Setup/Installation Requirements
 
-_Live site is at https://lukevandekieft.github.io/react-tamagotchi_
+_Live site is at https://reactive-tamagotchi.firebaseapp.com/_
 <br>
 <br>
 
